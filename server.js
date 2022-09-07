@@ -37,7 +37,7 @@ app.get('/', [
 ]);
 
 app.use(function(request, response, next) {
-    console.log('This is global middleware!');
+    console.log('Welcome!');
     next();
 });
 
