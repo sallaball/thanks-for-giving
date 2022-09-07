@@ -1,37 +1,44 @@
-const path = require('path');
 const express = require('express');
-const session = require('express-session');
-const exphbs = require('express-handlebars');
-const helpers = require('./utils/helpers');
 const app = express();
-const PORT = process.env.PORT || 3001;
-
-const sequelize = require('./config/config');
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
-
-const sess = {
-  secret: 'Super secret secret',
-  cookie: {},
-  resave: false,
-  saveUninitialized: true,
-  store: new SequelizeStore({
-    db: sequelize
-  })
-};
-app.use(session(sess));
-
-const hbs = exphbs.create({ helpers });
-
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
+const path = require('path');
+const db = require('./models');
+const user = require('./route/user');
+const post = require('./route/post');
+const login = require('./route/login');
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(require('./controllers/'));
+app.use(express.urlencoded({ extended: true }));
 
-app.listen(PORT, () => {
-  console.log(`App listening on port ${PORT}!`);
-  sequelize.sync({ force: false });
+app.use('/users', user);
+app.use('/posts', post);
+app.use('/login', login);
+
+
+app.use('/static', express.static(path.join(__dirname, 'public')));
+
+app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, 'views'));
+
+//Syncs up our Sequelize models with MySQL.
+(async () => {
+    await db.sequelize.sync();
+})();
+
+app.use((req, res, next) => {
+    console.log(new Date().toLocaleDateString());
+    next();
+})
+
+app.get('/', [
+    (req, res, next) => {
+        res.send('This is the home page!')
+    }
+]);
+
+app.use(function(request, response, next) {
+    console.log('This is global middleware!');
+    next();
 });
+
+app.listen(1234);
