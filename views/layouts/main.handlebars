@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Food App</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="row">
+        <h1 class="col-12" id="maindash">
+          <a href="/" id="title">THANKS-FOR-GIVING<img id="logo" src=https://images.onlinelabels.com/images/clip-art/GDJ/Turkey%20Chef-272086.png></div>
+          <p id="subtitle">Be the host everybody envies</p> 
+          </h1> 
+          <nav>
+            {{#if loggedIn}}
+            <a href="/dashboard">dashboard</a>
+            <button id="logout">logout</button>
+
+            {{else}}
+            <a href="/login">login</a>
+            {{/if}}
+          </nav>
+    </header>
+      
+      <main class="container">
+     {{{body}}}
+     </main>
+    
+     <footer>
+        Thank you for using Thanks-For-Giving!
+     </footer>
+
+     {{#if loggedIn}}
+     <script src="/javascript/logout.js"></script>
+     {{/if}}
+  </body>
+</html>
