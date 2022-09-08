@@ -6,8 +6,18 @@ const { Recipes, User } = require('../models');
 router.get("/", async (req, res) => {
   res.render('homepage');
 })
+
+router.get("/dashboard", async (req, res) => {
+  res.render('dashboard');
+})
+
+router.get("/recipes", async (req, res) => {
+  res.render('recipes');
+})
+
 // Render single recipe
 router.get("/recipe/:id", async (req, res) => {
+  res.render('recipes');
 })
 
 router.get('/login', (req, res) => {
@@ -19,13 +29,6 @@ router.get('/login', (req, res) => {
     res.render('login');
   });
   
-  router.get('/signup', (req, res) => {
-    if (req.session.loggedIn) {
-      res.redirect('/');
-      return;
-    }
   
-    res.render('signup');
-  });
 
   module.exports = router;

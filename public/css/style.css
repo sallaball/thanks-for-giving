@@ -1,0 +1,46 @@
+* {
+   margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+#logo {
+   height: 300px;
+   width: 300px;
+}
+.host {
+   color: black;
+   font-size: 25px;
+   
+   margin-bottom: 30px; 
+}
+
+.buttons {
+   margin: 10px;
+   padding: 5px;
+   color: black;
+}
+
+#title {
+   color: black;
+   text-decoration: none;
+}
+
+.containers {
+   background-color: aquamarine;
+   margin-bottom: 35px;;
+}
+
+.recipeStore {
+   margin: 25px;
+   color: white;
+}
+
+.login-form {
+   margin: 30px;
+}
+
+.signup-form {
+   margin: 30px;
+}
