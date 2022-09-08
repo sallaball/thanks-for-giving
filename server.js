@@ -49,9 +49,13 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
 //Syncs up our Sequelize models with MySQL.
-(async () => {
-    await db.sequelize.sync();
-})();
+// (async () => {
+//     await db.sequelize.sync();
+// })();
+sequelize.sync({ force: false }).then(() => {
+    app.listen(PORT, () => console.log('Now listening'));
+});
+
 
 app.use((req, res, next) => {
     console.log(new Date().toLocaleDateString());

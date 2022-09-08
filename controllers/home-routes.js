@@ -8,6 +8,7 @@ router.get("/", async (req, res) => {
 })
 // Render single recipe
 router.get("/recipe/:id", async (req, res) => {
+  
 })
 
 router.get('/login', (req, res) => {
