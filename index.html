@@ -1,63 +1,91 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+
+<html class="has-backgrounnd-Link-dark has-text-warning" lang="en">
+    
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Food App</title>
+    <title>THANKS FOR GIVING</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" rel="stylesheet">
   </head>
-  <body>
-    <div class="container">
-      <nav class="row">
-        <div class="col-12" id="maindash">
-          <div id="title">THANKS-FOR-GIVING<img id="logo" src=https://images.onlinelabels.com/images/clip-art/GDJ/Turkey%20Chef-272086.png></div>
-          <p id="subtitle">Be the host everybody envies</p> 
-        </div> 
-      </nav>
 
-      <div class="row" id="recipe">
-        <div class="col-sm-2">
-           <div class="searchAndDisplayTabs"><h5> Search for Food</h5><h6 id="displayItem"></h6></div>
-          <input type="text" id="recipeItems"><button id="searchButton" onclick="searchRecipe1()">&#x1F50D;</button>  
-          
-          
-        <div class="row" id="recipe">
-          <div class="col-sm-2">
-             <div class="searchAndDisplayTabs"><h5> Search for Drinks</h5><h6 id="displayItem"></h6></div>
-            <input type="text" id="recipeItems"><button id="searchButton" onclick="searchRecipe2()">&#x1F50D;</button>  
-          
-          
-         <div class="row" id="recipe">
-                <div class="col-sm-2">
-                   <div class="searchAndDisplayTabs"><h5> Search for Store</h5><h6 id="displayItem"></h6></div>
-                  <input type="text" id="recipeItems"><button id="searchButton" onclick="searchRecipe3()">&#x1F50D;</button>  
-            <div id="displayPictures">
-            
-            
-                <div id ="DISPLAY" class="display">
-              <img src="">
-              <div class="recipeTabs">
-                <div></div>
-                <div> <a id="viewRecipe" href="#"></a></div>
-                <div></div>
-              </div>
+<section class="hero is-large is-danger">
+    <div class="hero-head">
+      <nav class="navbar is-fixed-top">
+        <div class="container">
+          <div class="navbar-brand">
+            <span class="navbar-burger" data-target="navbarMenuHeroB">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </div>
+          <div id="navbarMenuHeroB" class="navbar-menu">
+            <div class="navbar-end">
+              <a class="navbar-item is-hoverable">
+                Home
+              </a>
+              <a class="navbar-item">
+                Upload Your Recipe
+              </a>
+              <span class="navbar-item">
+                <a class="button is-info is-inverted">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Login</span>
+                </a>
+              </span>
             </div>
-            </div>
-            
-             <div id="DISPLAY" class="display">
-              <img src="">
-              <div class="recipeTabs">
-                <div></div>
-                <div> <a id="viewRecipe" href="#"></a></div>
-                <div></div>
-              </div>
-             </div>
-            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  
+    <div class="hero-body">
+      <div class="container has-text-centered is">
+        <h1 class="title is-underlined">
+          THANKS FOR GIVING
+        </h1>
+        <img id="logo" src=https://images.onlinelabels.com/images/clip-art/GDJ/Turkey%20Chef-272086.png></div>
+        <p class="subtitle is-underlined has-text-centered">
+          BE THE HOST EVERYONE ENVIES
+        </p>
       </div>
     </div>
-  </div>
-   
-    
-  </body>
+
+    <div class="hero-footer">
+        <nav class="navbar is-fixed-bottom">
+            <div class="container">
+              <div class="navbar-menu is-active">
+                <span class="navbar-burger" data-target="navbarMenuHeroB">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </span>
+              </div>
+              
+              <div id="navbarMenuHeroB" class="navbar-menu">
+                <div class="navbar-start">
+                  <a class="navbar-item">
+                    Search for Ingredients<h6 id="displayItem"></h6></div>
+                    <input type="text" id="recipeItems"><button id="searchButton" onclick="searchRecipe1()">&#x1F50D;</button>  
+                  </a>
+                  <a class="navbar-item">
+                    Search for Cocktails<h6 id="displayItem"></h6></div>
+                    <input type="text" id="recipeItems"><button id="searchButton" onclick="searchRecipe1()">&#x1F50D;</button>
+                  </a>
+                  <a class="navbar-item">
+                    Search Stock<h6 id="displayItem"></h6></div>
+                    <input type="text" id="recipeItems"><button id="searchButton" onclick="searchRecipe1()">&#x1F50D;</button>
+                  </a>
+                  
+                    </a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
 </html>
