@@ -43,7 +43,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(require('./controllers'));
 
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/static', express.static(path.join(__dirname, 'public')));
 
 // app.set('view engine', 'pug');
 // app.set('views', path.join(__dirname, 'views'));
@@ -73,3 +73,14 @@ app.use((req, res, next) => {
     console.log(req.body)
     res.sendStatus(404)
   })
+app.use(function(request, response, next) {
+    console.log('Welcome!');
+    next();
+});
+
+// db.sequelize.sync().then(() => {
+//     app.listen(3000, () => {
+//         console.log('app is running on 3000');
+//     });
+// })
+app.listen(3000);
