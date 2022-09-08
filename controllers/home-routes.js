@@ -7,7 +7,7 @@ router.get("/", async (req, res) => {
   res.render('homepage');
 })
 
-router.get("/test", async (req, res) => {
+router.get("/dashboard", async (req, res) => {
   res.render('dashboard');
 })
 

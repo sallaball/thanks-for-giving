@@ -10,19 +10,19 @@
   </head>
 
   <body>
-    <div class="container">
-      <header class="row">
+    <div class="containers">
+      <header class="row text-center">
         <h1 class="col-12" id="maindash">
           <a href="/" id="title">THANKS-FOR-GIVING<img id="logo" src=https://images.onlinelabels.com/images/clip-art/GDJ/Turkey%20Chef-272086.png></div>
-          <p id="subtitle">Be the host everybody envies</p> 
+          <p id="subtitle" class="text-center host">Be the host everybody envies</p> 
           </h1> 
-          <nav>
-            <a href="/dashboard">dashboard</a>
+          <nav class="text-center">
+            <a href="/dashboard" class="text-center border border-dark rounded buttons bg-warning">dashboard</a>
             {{#if loggedIn}}
-            <button id="logout">logout</button>
+            <button id="logout" class="text-center border border-dark rounded buttons bg-warning">logout</button>
 
             {{else}}
-            <a href="/login">login</a>
+            <a href="/login" class="text-center border border-dark rounded buttons bg-warning">login</a>
             {{/if}}
           </nav>
     </header>
@@ -31,7 +31,7 @@
      {{{body}}}
      </main>
     
-     <footer>
+     <footer class="text-center">
         Thank you for using Thanks-For-Giving!
      </footer>
 
