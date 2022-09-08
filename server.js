@@ -2,9 +2,12 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const db = require('./models');
-const user = require('./route/user');
-const post = require('./route/post');
-const login = require('./route/login');
+const user = require('./controllers/user');
+// const post = require('./controllers/post');
+// const login = require('./controllers/login');
+const session = require('express-session');
+
+const PORT = process.env.PORT || 3001;
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -21,20 +24,23 @@ const sess = {
 
 app.use(session(sess));
 
+const helpers = require('./utils/helper');
 const exphbs = require('express-handlebars');
 
-const hbs = exphbs.create({});
+const hbs = exphbs.create({ helpers });
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars'); 
 
 app.use(express.json());
 
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 
-app.use('/users', user);
-app.use('/posts', post);
-app.use('/login', login);
+// app.use('/users', user);
+// app.use('/posts', post);
+// app.use('/login', login);
+
+app.use(require('./controllers'));
 
 
 app.use('/static', express.static(path.join(__dirname, 'public')));
@@ -52,12 +58,12 @@ app.use((req, res, next) => {
     next();
 })
 
-app.get('/', [
-    (req, res, next) => {
-        res.send('This is the home page!')
-    }
-    res.send(test);
-  })
+// app.get('/', [
+//     (req, res, next) => {
+//         res.send('This is the home page!')
+//     },
+//     res.send(test),
+// )
 
   app.post('/create-user', (req, res) => {
     console.log(req.body)

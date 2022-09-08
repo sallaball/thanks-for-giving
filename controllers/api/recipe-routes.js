@@ -22,4 +22,4 @@ router.get("/hellow", withAuth, async (req, res) => {
     res.send("hello")
 } )
 
-module.exports = router
+module.exports = router;

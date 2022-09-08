@@ -17,25 +17,18 @@
                   <input type="text" id="recipeItems"><button id="searchButton" onclick="searchRecipe3()">&#x1F50D;</button>  
             <div id="displayPictures">
             
-            
+            {{#if loggedIn}}
+            {{#if recipes.length}}
                 <div id ="DISPLAY" class="display">
               <img src="">
               <div class="recipeTabs">
-                <div></div>
+                <a href="">Your saved Recipes</div>
                 <div> <a id="viewRecipe" href="#"></a></div>
                 <div></div>
               </div>
             </div>
             </div>
-            
-             <div id="DISPLAY" class="display">
-              <img src="">
-              <div class="recipeTabs">
-                <div></div>
-                <div> <a id="viewRecipe" href="#"></a></div>
-                <div></div>
-              </div>
-             </div>
+            {{/if}}
             </div>
       </div>
     </div>
