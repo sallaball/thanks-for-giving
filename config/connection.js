@@ -1,25 +1,34 @@
-const Sequelize = require("sequelize");
-require('dotenv').config();
+"use strict";
 
+const Sequelize = require('sequelize');
 let sequelize;
-if(process.env.JAWSDB_URL){
-    sequelize = new Sequelize(process.env.JAWSDB_URL)
-} else{
+
+const env = "development";
+const config = require(__dirname + "/config.json")[env];
+
+
     sequelize = new Sequelize(
-        process.env.DB_NAME,
-        process.env.DB_USER,
-        process.env.DB_PASSWORD,
+        config.database,
+        config.username,
+        config.password,
         {
-            host:"thanks-for-giving.ccergbqiqotr.us-east-1.rds.amazonaws.com",
-            dialect:"mysql",
-            port: 3306,
+            host: config.host,
+            dialect: 'mysql',
+            operatorsAliases: false,
 
+            pool: {
+                max: 5,
+                min: 0,
+                acquire: 30000,
+                idle: 10000
+            }
         }
-    )
-} 
+    );
 
-const database = {};
-database.sequelize = sequelize;
-database.Sequelize = Sequelize;
 
-module.exports = database;
+const db = {};
+
+db.sequelize = sequelize;
+db.Sequelize = Sequelize;
+
+module.exports = db;
