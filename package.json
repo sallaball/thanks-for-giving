@@ -1,5 +1,23 @@
 {
   "dependencies": {
-    "bulma": "^0.9.4"
-  }
+    "bulma": "^0.9.4",
+    "express": "^4.18.1"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "thanksgiving",
+  "description": "Have you ever wanted to find the best deals and recipes for a major event? This application will assist you in finding the best deals within your budget range, ingredients, and availability to ensure a successfully hosted event.",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WeWantSomeMo/thanks-for-giving.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WeWantSomeMo/thanks-for-giving/issues"
+  },
+  "homepage": "https://github.com/WeWantSomeMo/thanks-for-giving#readme"
 }

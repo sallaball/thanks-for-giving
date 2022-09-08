@@ -17,4 +17,9 @@ router.post("/saved/:userid/:recipeid", withAuth, async (req, res) => {
 router.get("/saved/:userid", withAuth, async (req, res) => {
 })
 
+//mock
+router.get("/hellow", withAuth, async (req, res) => {
+    res.send("hello")
+} )
+
 module.exports = router
