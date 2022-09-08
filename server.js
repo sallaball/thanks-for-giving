@@ -43,10 +43,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(require('./controllers'));
 
 
-app.use('/static', express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.set('view engine', 'pug');
-app.set('views', path.join(__dirname, 'views'));
+// app.set('view engine', 'pug');
+// app.set('views', path.join(__dirname, 'views'));
 
 //Syncs up our Sequelize models with MySQL.
 // (async () => {

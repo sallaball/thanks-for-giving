@@ -1,9 +1,14 @@
 const router = require("express").Router()
-const { User } = require("../../Models")
+const { User } = require("../../models")
 
 // This is for sign up profiles
 router.post("/", async (req, res) => {
     // User.create goes here
+    console.log(req.body)
+    User.create(req.body)
+    .then(newUser => {
+        return res.json(newUser)
+    })
 })
 
 // This is for login use
