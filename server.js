@@ -56,11 +56,10 @@ app.get('/', [
     (req, res, next) => {
         res.send('This is the home page!')
     }
-]);
+    res.send(test);
+  })
 
-app.use(function(request, response, next) {
-    console.log('Welcome!');
-    next();
-});
-
-app.listen(1234);
+  app.post('/create-user', (req, res) => {
+    console.log(req.body)
+    res.sendStatus(404)
+  })
