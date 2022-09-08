@@ -17,12 +17,14 @@
           <p id="subtitle" class="text-center host">Be the host everybody envies</p> 
           </h1> 
           <nav class="text-center">
-            <a href="/dashboard" class="text-center border border-dark rounded buttons bg-warning">dashboard</a>
+            <a href="/dashboard" class="text-center border border-dark rounded buttons bg-warning">Dashboard</a>
+            
             {{#if loggedIn}}
-            <button id="logout" class="text-center border border-dark rounded buttons bg-warning">logout</button>
+            <button id="logout" class="text-center border border-dark rounded buttons bg-warning">Logout</button>
+            <a href="/recipes" class="text-center border border-dark rounded buttons bg-warning">Your Recipes</a>
 
             {{else}}
-            <a href="/login" class="text-center border border-dark rounded buttons bg-warning">login</a>
+            <a href="/login" class="text-center border border-dark rounded buttons bg-warning">Login</a>
             {{/if}}
           </nav>
     </header>
