@@ -1,18 +1,18 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const db = require('./models');
-const user = require('./route/user');
-const post = require('./route/post');
-const login = require('./route/login');
+const db = require('./config/connection');
+// const user = require('./route/user');
+// const post = require('./route/post');
+// const login = require('./route/login');
 
+
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.use(express.urlencoded({ extended: true }));
-
-app.use('/users', user);
-app.use('/posts', post);
-app.use('/login', login);
+// app.use('/users', user);
+// app.use('/posts', post);
+// app.use('/login', login);
 
 
 app.use('/static', express.static(path.join(__dirname, 'public')));
@@ -41,4 +41,9 @@ app.use(function(request, response, next) {
     next();
 });
 
-app.listen(1234);
+// db.sequelize.sync().then(() => {
+//     app.listen(3000, () => {
+//         console.log('app is running on 3000');
+//     });
+// })
+app.listen(3000);
