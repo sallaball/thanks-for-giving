@@ -26,7 +26,7 @@ const config = require(__dirname + "/config.json")[env];
 
             pool: {
                 max: 5,
-                min: 0,
+                min: 0, 
                 acquire: 30000,
                 idle: 10000
             }
@@ -37,7 +37,7 @@ const config = require(__dirname + "/config.json")[env];
 
 module.exports = sequelize;
 
-    );
+    
 
 
 const db = {};
