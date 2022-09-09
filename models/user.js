@@ -1,6 +1,8 @@
-// const {Model,DataTypes} = require('sequelize');
-// const sequelize = require('../config/connection');
-// const bcrypt = require('bcrypt');
+
+const {Model, DataTypes} = require('sequelize');
+const sequelize = require('../config/connection');
+const bcrypt = require('bcrypt');
+
 
 // class User extends Model {
 //     checkPassword(loginPw){
@@ -85,7 +87,7 @@ module.exports = db.sequelize.define(
         }
     },
     {
-<<<<<<< HEAD
+
         hooks: {
             beforeCreate: async (newUserData) => {
                 newUserData.password = await bcrypt.hash(newUserData.password, 10);
@@ -105,8 +107,6 @@ module.exports = db.sequelize.define(
 );
 
 module.exports = User;
-=======
-        timestamps: false
-    }
-);
->>>>>>> 9a8f35e4996bb91feb2cad6129b0a349730ce441
+
+
+
