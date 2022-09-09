@@ -1,8 +1,8 @@
 {
     "development": {
         "username": "root",
-        "password": "coding",
-        "database": "thanks_for_giving",
+        "password": "8Mambaout24!",
+        "database": "thanks-for-giving",
         "host": "localhost",
         "dialect": "mysql"
     },
