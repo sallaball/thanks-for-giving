@@ -1,6 +1,6 @@
 const User = require('./User');
 const index = require('./index');
-const recipes = require('./recipes');
+const Recipes = require('./Recipes');
 
 
-module.exports = {User, index, recipes};
+module.exports = {User, index, Recipes};
