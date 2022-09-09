@@ -33,7 +33,8 @@ const config = require(__dirname + "/config.json")[env];
         }
 
     )
-} 
+
+
 module.exports = sequelize;
 
     );
