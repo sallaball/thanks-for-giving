@@ -4,12 +4,59 @@ const { User } = require("../../models")
 // This is for sign up profiles
 router.post("/", async (req, res) => {
     // User.create goes here
-    console.log(req.body)
-    User.create(req.body)
-    .then(newUser => {
-        return res.json(newUser)
+   User.create({
+       username: req.body.username,
+       password: req.body.password,
+
+   })
+   .then((newUser)=>{
+       req.session.save(()=>{
+           (req.session.user_id = newUser.id),
+           (req.session.password = newUser.password),
+           req.session.loggedIn = true;
+
+           res.json(newUser)
+       })
+   })
+      .catch((err)=>{
+          console.log(err);
+          res.status(500).json(err)
+      })
     })
+// GET all route
+router.get("/", (req,res)=>{
+    User.findAll({
+        attributes:{exclude:["password"]}, 
 })
+.then((userData)=> res.json(userData))
+.catch((err) =>{
+    console.log(err)
+    res.status(500).json(err)
+})
+})
+
+// Get user by ID
+router.get('/:id', (req, res) => {
+    User.findOne({
+        attributes: {exclude: ["password"]},
+        where: {
+            id: req.params.id
+        }
+    })
+    .then((userData) =>{
+        if(!userData){
+            res.status(404).json({message:"Not valid user"})
+            return;
+        }
+        res.json(userData)
+    })
+    .catch((err)=> {
+        console.log(err)
+        res.status(500).json(err)
+    })
+    
+    
+  });
 
 // This is for login use
 router.post("/login", async (req, res) => {
@@ -38,7 +85,11 @@ router.post("/login", async (req, res) => {
             req.session.loggedIn = true;
 
         res.json({ user: dbUserData, message: 'You are now logged in!' });
-    });
+    })
+    .catch((err) =>{
+        console.log (err)
+        req.status(500).json(err)
+    })
 });
 })
 
