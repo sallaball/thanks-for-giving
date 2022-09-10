@@ -1,5 +1,8 @@
-const {Model} = require("sequelize")
-const sequelize = require("../config/connection")
+const {Sequelize, Model, DataTypes} = require("sequelize")
+//const sequelize = require("../config/connection")
+const sequelize = new Sequelize("sqlite::memory:");
+
+
 
 class Recipe extends Model{}
 Recipe.init(
