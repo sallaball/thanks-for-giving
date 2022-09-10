@@ -1,6 +1,11 @@
 const User = require('./User');
-const index = require('./index');
 const Recipes = require('./Recipes');
 
+User.hasMany(Recipes,{
+    foreignKey:"user_id"
+})
 
-module.exports = {User, index, Recipes};
+Recipes.belongsto(User,{
+    foreignKey:"user_id"
+})
+module.exports = {User, Recipes};
