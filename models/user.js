@@ -55,7 +55,7 @@ const Sequelize = require('sequelize');
 const db = require('../config/connection');
 
 module.exports = db.sequelize.define(
-    'user',
+    'User',
     {
         id: {
             type: Sequelize.INTEGER,
@@ -68,7 +68,7 @@ module.exports = db.sequelize.define(
             unique: true
         },
         username: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             allowNull: false
         },
         email: {
@@ -95,11 +95,10 @@ module.exports = db.sequelize.define(
                 return updatedUserData;
             },
         },
-    sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user',
+    modelName: 'User',
     },
 );
 
