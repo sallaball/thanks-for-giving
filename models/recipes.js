@@ -4,8 +4,8 @@ const sequelize = new Sequelize("sqlite::memory:");
 
 
 
-class Recipe extends Model{}
-Recipe.init(
+class Recipes extends Model{}
+Recipes.init(
     {
         id:{
             type:DataTypes.INTEGER,
@@ -19,6 +19,11 @@ Recipe.init(
             allowNull: false,
 
         },
+        sequelize, 
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'recipes',
         
     }
 )
