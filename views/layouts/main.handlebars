@@ -1,41 +1,149 @@
 <!doctype html>
-<html lang="en">
+
+<html class="has-backgrounnd-Link-dark has-text-warning" lang="en">
+    
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Food App</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" rel="stylesheet">
+    <title>THANKS FOR GIVING</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" rel="stylesheet" type="text/css">
   </head>
 
-  <body>
-    <div class="container">
-      <header class="row">
-        <h1 class="col-12" id="maindash">
-          <a href="/" id="title">THANKS-FOR-GIVING<img id="logo" src=https://images.onlinelabels.com/images/clip-art/GDJ/Turkey%20Chef-272086.png></div>
-          <p id="subtitle">Be the host everybody envies</p> 
-          </h1> 
-          <nav>
-            {{#if loggedIn}}
-            <a href="/dashboard">dashboard</a>
-            <button id="logout">logout</button>
+  <section class="hero is-large is-danger">
+    <div class="hero-head">
+      <nav class="navbar is-fixed-top">
+        <div class="container">
+          <div class="navbar-brand">
+            <span class="navbar-burger" data-target="navbarMenuHeroB">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </div>
+          <div id="navbarMenuHeroB" class="navbar-menu">
+            <div class="navbar-end">
+              <a class="navbar-item is-hoverable">
+                Home
+              </a>
+              <span class="navbar-item">
+                <a class="button is-info is-hoverable">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Dashboard</span>
+                </a>
+              </span>
+              <a class="navbar-item">
+                Upload Your Recipe
+              </a>
 
-            {{else}}
-            <a href="/login">login</a>
-            {{/if}}
-          </nav>
-    </header>
+               {{#if loggedIn}}
+               <span class="navbar-item">
+                <a class="button is-info is-inverted">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Logout</span>
+                </a>
+              </span>
+
+             {{else}}
+              <span class="navbar-item">
+                <a class="button is-info is-hoverable">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Login</span>
+                </a>
+              </span>
+              {{/if}}
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+{{!-- <html lang="en"> --}}
+  {{!-- <head> --}}
+    {{!-- <meta charset="utf-8"> --}}
+    {{!-- <meta name="viewport" content="width=device-width, initial-scale=1"> --}}
+    {{!-- <title>Food App</title> --}}
+     {{!-- <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" rel="stylesheet"> --}}
+    {{!-- <link rel="stylesheet" href="/css/style.css"> --}}
+   
+  {{!-- </head> --}}
+
+ <body>
+    <div class="hero-body">
+      <div class="container has-text-centered is">
+        <h1 class="title is-underlined">
+          THANKS FOR GIVING
+        </h1>
+        <img id="logo" src=https://images.onlinelabels.com/images/clip-art/GDJ/Turkey%20Chef-272086.png></div>
+        <p class="subtitle is-underlined has-text-centered">
+          BE THE HOST EVERYONE ENVIES
+        </p>
+      </div>
+    </div>
+    {{!-- <div class="container"> --}}
+      {{!-- <header class="row"> --}}
+        {{!-- <h1 class="col-12" id="maindash"> --}}
+          {{!-- <a href="/" id="title">THANKS-FOR-GIVING<img id="logo" src=https://images.onlinelabels.com/images/clip-art/GDJ/Turkey%20Chef-272086.png></div> --}}
+          {{!-- <p id="subtitle">Be the host everybody envies</p>  --}}
+          {{!-- </h1>  --}}
+          {{!-- <nav> --}}
+           
+            {{!-- {{<a href="/dashboard">dashboard</a> --}} 
+            {{!-- {{<button id="logout">logout</button> --}} 
+
+            
+            {{!-- <a href="/login">login</a> --}}
+            
+          {{!-- </nav> --}}
+    {{!-- </header> --}}
       
-      <main class="container">
+      {{!-- <main class="container"> --}}
      {{{body}}}
-     </main>
+     {{!-- </main> --}}
     
      <footer class="text-center">
-        Thank you for using Thanks-For-Giving!
-     </footer>
+        <div class="hero-footer">
+        <nav class="navbar is-fixed-bottom">
+            <div class="container">
+              <div class="navbar-menu is-active">
+                <span class="navbar-burger" data-target="navbarMenuHeroB">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </span>
+              </div>
+              
+              <div id="navbarMenuHeroB" class="navbar-menu">
+                <div class="navbar-start">
+                  <a class="navbar-item">
+                    Search for Ingredients<h6 id="displayItem"></h6></div>
+                    <input type="text" id="recipeItems"><button id="searchButton" onclick="searchRecipe1()">&#x1F50D;</button>  
+                  </a>
+                  <a class="navbar-item">
+                    Search for Cocktails<h6 id="displayItem"></h6></div>
+                    <input type="text" id="recipeItems"><button id="searchButton" onclick="searchRecipe1()">&#x1F50D;</button>
+                  </a>
+                  <a class="navbar-item">
+                    Search Stock<h6 id="displayItem"></h6></div>
+                    <input type="text" id="recipeItems"><button id="searchButton" onclick="searchRecipe1()">&#x1F50D;</button>
+                  </a>
+                  
+                    </a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+    </footer>
 
      {{#if loggedIn}}
-     <script src="/javascript/logout.js"></script>
+  <script src="/javascript/logout.js"></script>
      {{/if}}
   </body>
 </html>
