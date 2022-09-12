@@ -1,6 +1,6 @@
 const {Sequelize, Model, DataTypes} = require("sequelize")
 //const sequelize = require("../config/connection")
-const sequelize = new Sequelize("sqlite::memory:");
+const sequelize = require ("../config/connection")
 
 
 
@@ -18,7 +18,8 @@ Recipes.init(
             type:DataTypes.STRING,
             allowNull: false,
 
-        },
+        }
+    }, {
         sequelize, 
     timestamps: false,
     freezeTableName: true,
@@ -27,3 +28,4 @@ Recipes.init(
         
     }
 )
+module.exports = Recipes

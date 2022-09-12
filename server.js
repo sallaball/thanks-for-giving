@@ -23,7 +23,7 @@ const sess = {
     resave: false,
     saveUninitialized: true,
     store: new SequelizeStore({
-        db: db
+        db: sequelize
     }),
     cookie: {
       maxAge: 30000,
@@ -87,7 +87,7 @@ app.use(function(req, res, next){
   next();
 })
 
-db.sequelize.sync().then(() => {
+sequelize.sync({force: false}).then(() => {
     app.listen(process.env.PORT || 3000, () => {
         console.log(`🌎  ==> API Server now listening on 3000!`);
     });

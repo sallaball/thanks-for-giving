@@ -5,7 +5,7 @@ User.hasMany(Recipes,{
     foreignKey:"user_id"
 })
 
-Recipes.belongsto(User,{
+Recipes.belongsTo(User,{
     foreignKey:"user_id"
 })
 module.exports = {User, Recipes};
