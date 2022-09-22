@@ -12,7 +12,7 @@
             <input class="textarea" name="post-content" type="text" value="{{post.post_content}}" />
         </div>
         <div class="is-pulled-right">
-            Created by you on {{format_date post.Created_at}}
+            Created by you on {{format_date post.created_at}}
             |
             <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
         </div>
@@ -20,3 +20,9 @@
         <button type="button" class="button is-danger delete-post-btn">Delete Post</button>
     </form>
 </article>
+
+{{> comments post.comments}}
+
+<script src="/javascript/edit-post.js"></script>
+<script src="/javascript/delete-post.js"></script>
+<script src="/javascript/comment.js"></script>
