@@ -45,3 +45,8 @@
 .signup-form {
    margin: 30px;
 }
+
+.login-signup {
+   margin-bottom: 50px;
+   align-items: center;
+}

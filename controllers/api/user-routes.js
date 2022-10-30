@@ -1,18 +1,19 @@
 const router = require("express").Router()
-const { User } = require("../../models")
+const { User, Recipes } = require("../../models")
 
 // This is for sign up profiles
 router.post("/", async (req, res) => {
     // User.create goes here
    User.create({
        username: req.body.username,
+       email: req.body.email,
        password: req.body.password,
 
    })
-   .then((newUser)=>{
+   .then(newUser => {
        req.session.save(()=>{
-           (req.session.user_id = newUser.id),
-           (req.session.password = newUser.password),
+           req.session.user_id = newUser.id;
+           req.session.password = newUser.password;
            req.session.loggedIn = true;
 
            res.json(newUser)
