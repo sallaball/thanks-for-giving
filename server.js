@@ -2,12 +2,12 @@ require("dotenv").config();
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
-const hbs = exphbs.create({});
+const hbs = exphbs.create({ helpers });
 
 const routes = require("./controllers");
 const path = require('path'); 
 const app = express();
-const PORT = process.env.PORT||3001;
+const PORT = process.env.PORT||3000;
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -38,48 +38,12 @@ app.use(session(sess));
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars'); 
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use('/static', express.static(path.join(__dirname, 'public')));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.use(express.static('./views/layouts'))
 app.use(require('./controllers'))
-
-//app.use('/', user);
-// app.use('/posts', post);
-// app.use('/login', login);
-
-
-// app.set('view engine', 'pug');
-// app.set('views', path.join(__dirname, 'views'));
-
-//Syncs up our Sequelize models with MySQL.
-// (async () => {
-//     await db.sequelize.sync();
-// })();
-
-
-
-// app.use((req, res, next) => {
-//     console.log(new Date().toLocaleDateString());
-//     next();
-// })
-
-// app.get('/', [
-//     (req, res, next) => {
-//         res.send('This is the home page!')
-//     },
-//     res.send(test),
-// )
-
-//   app.post('/create-user', (req, res) => {
-//     console.log(req.body)
-//     res.sendStatus(404)
-//   })
-
-// app.use(function(request, response, next) {
-//     console.log('Welcome!');
-//     next();
-// });
 
 app.use(function(req, res, next){
   res.header("Access-Control-Allow-Orgin","*")
