@@ -10,8 +10,9 @@ const hbs = exphbs.create({ helpers });
 
 const session = require('express-session');
 
+const PORT = process.env.PORT || 3002;
 const app = express();
-const PORT = process.env.PORT || 3001;
+
 
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -38,6 +39,15 @@ app.set('view engine', 'handlebars');
 app.use(routes);
 
 // turn on connection to db and server
+
+// mongoose.connect(
+//     process.env.MONGODB_URI || 'mongodb://localhost:27017/tech_blog',
+//     {
+//       useNewUrlParser: true,
+//       useUnifiedTopology: true,
+//     },
+//   );
+
 sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log('Now listening'));
+    app.listen(PORT, () => console.log('Now listening on PORT 3002'));
 });
